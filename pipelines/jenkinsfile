@@ -1,0 +1,26 @@
+ipeline {
+    agent {
+        node {
+            label 'ubuntu'
+        }
+    }
+    stages {
+        stage('Clone Repo Project') {
+            steps {
+               sh "echo hostname"
+            }
+        }
+        
+    }
+    post {
+        success {
+            echo "THE END JOB SUCCEEDED!"
+        }
+        failure {
+            echo "FALHA !!! "
+        }
+        always {
+            cleanWs deleteDirs: true, patterns: [[pattern: '', type: 'EXCLUDE']]
+        }      
+    }       
+}
