@@ -1,2 +1,30 @@
 @Library('util') _
 
+pipeline {
+    agent {
+        node {
+            label 'ubuntu'
+        }
+    }
+    stages {
+
+        stage('Example') {
+
+            steps {
+
+                util()
+
+            }
+        }    
+    post {
+        success {
+            echo "THE END JOB SUCCEEDED!"
+        }
+        failure {
+            echo "FALHA !!! "
+        }
+        always {
+            cleanWs deleteDirs: true, patterns: [[pattern: '', type: 'EXCLUDE']]
+        }      
+    }       
+}
