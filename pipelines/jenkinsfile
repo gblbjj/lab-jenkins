@@ -1,3 +1,4 @@
+@Library('Util') _
 pipeline {
     agent {
         node {
@@ -7,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Repo Project') {
             steps {
-               sh "echo hostname"
+               teste()
             }
         }
         
