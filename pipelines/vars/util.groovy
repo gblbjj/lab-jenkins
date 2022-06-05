@@ -1,3 +1,4 @@
+#!groovy
 def call() {
     echo "Welcome"
 }
