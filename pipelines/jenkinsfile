@@ -12,7 +12,7 @@ pipeline {
 
             steps {
 
-                util()
+                util(${repo}, ${branch})
 
             }
         }    
